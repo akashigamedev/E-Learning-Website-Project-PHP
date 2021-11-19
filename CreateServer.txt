@@ -1,0 +1,39 @@
+database lms_db utf-8 bin
+
+admin
+
+CREATE TABLE admin (
+admin_id int AUTO_INCREMENT NOT NULL,
+admin_name varchar(255) NOT NULL,
+admin_email varchar(255) NOT NULL,
+admin_pass varchar(255) NOT NULL,
+PRIMARY KEY (admin_id)
+)
+
+course
+
+CREATE TABLE course (
+course_id int AUTO_INCREMENT NOT NULL,
+course_name text NOT NULL,
+course_desc text NOT NULL,
+course_author varchar(255) NOT NULL,
+course_img text NOT NULL,
+course_duration text NOT NULL,
+course_price int NOT NULL,
+course_original_price int NOT NULL,
+PRIMARY KEY (course_id)
+)
+
+student
+
+CREATE TABLE student (
+
+stu_id int AUTO_INCREMENT NOT NULL,
+stu_name varchar(255) NOT NULL,
+stu_email varchar(255) NOT NULL,
+stu_pass varchar(255) NOT NULL,
+stu_occ varchar(255) NOT NULL,
+stu_img text NOT NULL,
+PRIMARY_KEY (stu_id)
+)
+
