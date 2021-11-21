@@ -19,7 +19,7 @@
             if (!isset($_SESSION['is_login'])) {
                 echo '<a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#stuRegModalCenter">Get Started</a>';
             } else {
-                echo '<a href="#" class="btn btn-primary mt-3">My Profile</a>';
+                echo '<a href="./Student/studentProfile.php" class="btn btn-primary mt-3">My Profile</a>';
             }
             ?>
 

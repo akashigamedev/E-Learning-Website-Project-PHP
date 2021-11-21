@@ -33,10 +33,10 @@ if(isset($_SESSION['is_admin_login']))
                 </tr>
             </thead>
             <tbody>
-                <?php $timer = 1;
+                <?php
                 while ($row = $result->fetch_assoc()) {
                     echo '<tr>';
-                    echo '<th scope="row">' . $timer++ . '</th>';
+                    echo '<th scope="row">' . $row['course_id'] . '</th>';
                     echo '<td>' . $row['course_name'] . '</td>';
                     echo '<td>' . $row['course_author'] . '</td>';
                     echo '<td>';
