@@ -19,8 +19,6 @@ course_desc text NOT NULL,
 course_author varchar(255) NOT NULL,
 course_img text NOT NULL,
 course_duration text NOT NULL,
-course_price int NOT NULL,
-course_original_price int NOT NULL,
 PRIMARY KEY (course_id)
 )
 

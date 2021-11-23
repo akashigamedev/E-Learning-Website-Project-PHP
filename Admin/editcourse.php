@@ -20,8 +20,7 @@ if(isset($_REQUEST['requpdate']))
     //Checking for Empty fields
     if(($_REQUEST['course_id'] == "") || ($_REQUEST['course_name'] == "") || 
     ($_REQUEST['course_desc'] == "") || ($_REQUEST['course_author'] == "") || 
-    ($_REQUEST['course_duration'] == "") || ($_REQUEST['course_original_price'] == "") ||
-    ($_REQUEST['course_price'] == "")){
+    ($_REQUEST['course_duration'] == "")){
         //msg displayed if required fields are empty
         $msg = '<div class="alert alert-warning col-sm-6 ml-5 mt-2" role="alert">
          Fill All Fields
@@ -32,13 +31,10 @@ if(isset($_REQUEST['requpdate']))
         $cname = $_REQUEST['course_name'];
         $cdesc = $_REQUEST['course_desc'];
         $cauthor = $_REQUEST['course_author'];
-        $cprice = $_REQUEST['course_price'];
-        $coriginalprice =  $_REQUEST['course_original_price'];
         $cimg = '../image/courseimg/'. $_FILES['course_img']['name'];
 
         $sql = "UPDATE course SET course_id = '$cid', course_name = '$cname', course_desc = '$cdesc',
-        course_author = '$cauthor', course_price = '$cprice', course_original_price = '$coriginalprice',
-        course_img = '$cimg' WHERE course_id = '$cid'";
+        course_author = '$cauthor', course_img = '$cimg' WHERE course_id = '$cid'";
         if($conn->query($sql))
         {
             $msg = '<div class="alert alert-success col-sm-6 ml-5 mt-2" role="alert">
@@ -91,16 +87,6 @@ if(isset($_REQUEST['requpdate']))
             <label for="course_duration">Course Duration</label>
             <input type="text" class="form-control" id="course_duration" name="course_duration"
             value="<?php if (isset($row['course_duration'])) {echo $row['course_duration'];} ?>">
-        </div>
-        <div class="form-group">
-            <label for="course_original_price">Course Original Price</label>
-            <input type="text" class="form-control" id="course_original_price" name="course_original_price"
-            value="<?php if (isset($row['course_original_price'])) {echo $row['course_original_price'];} ?>">
-        </div>
-        <div class="form-group">
-            <label for="course_price">Course Selling Price</label>
-            <input type="text" class="form-control" id="course_price" name="course_price"
-            value="<?php if (isset($row['course_price'])) {echo $row['course_price'];} ?>">
         </div>
         <div class="form-group">
             <label for="course_img">Course Image</label>

@@ -32,7 +32,7 @@ if(isset($stuLogEmail))
 <body>
     <!-- Top Navbar -->
     <nav class="navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow" style="background:#225470;">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="../studentProfile.php">Akash Academy</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="../index.php">Akash Academy</a>
     </nav>
     <!-- Side bar -->
     <div class="container-fluid mb-5" style="margin-top:40px;">

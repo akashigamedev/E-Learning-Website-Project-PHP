@@ -1,6 +1,7 @@
     <!-- Including Header -->
     <?php
     include('./mainInclude/header.php');
+    include('./dbconnection.php');
     ?>
 
     <!-- Start Video Background -->
@@ -50,99 +51,73 @@
         <h1 class="text-center">Popular Courses</h1>
         <!--Start Most Popular Course 1st Card Deck -->
         <div class="card-deck mt-4">
-            <a href="#" class="btn" style="text-align: left;
+            <?php
+            
+            $sql = "SELECT * FROM course LIMIT 3";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0)
+            {
+                while($row = $result->fetch_assoc())
+                {
+                    $course_id = $row['course_id'];
+                    echo '
+                    <a href="coursedetail.php?course_id='. $course_id .'" class="btn" style="text-align: left;
             padding:0px; margin:0px;">
                 <div class="card">
-                    <img src="image/python.jpg" class="card-img-top" alt="Python" />
+                    <img src="'. str_replace('..', '.', $row['course_img']).'" class="card-img-top" alt="Python" />
                     <div class="card-body">
-                        <h5 class="card-title">Learn Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
+                        <h5 class="card-title">'. $row['course_name'] .'</h5>
+                        <p class="card-text">'. $row['course_desc'] .'</p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
+                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="coursedetail.php?course_id='. $course_id .'">Enroll</a>
                     </div>
                 </div>
             </a>
-            <a href="#" class="btn" style="text-align: left;
-            padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/python.jpg" class="card-img-top" alt="Python" />
-                    <div class="card-body">
-                        <h5 class="card-title">Learn Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="btn" style="text-align: left;
-            padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/python.jpg" class="card-img-top" alt="Python" />
-                    <div class="card-body">
-                        <h5 class="card-title">Learn Python</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
+                    ';
+                }
+            }
+
+            ?>
+            
         </div>
         <!-- End Most Popular 1st Card Deck -->
 
         <!-- Start Most Popular 2nd Card Deck -->
         <div class="card-deck mt-4">
-            <a href="#" class="btn" style="text-align: left;
+        <?php
+            
+            $sql = "SELECT * FROM course LIMIT 3, 3";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0)
+            {
+                while($row = $result->fetch_assoc())
+                {
+                    $course_id = $row['course_id'];
+                    echo '
+                    <a href="coursedetail.php?course_id='. $course_id .'" class="btn" style="text-align: left;
             padding:0px; margin:0px;">
                 <div class="card">
-                    <img src="image/guitar.jpg" class="card-img-top" alt="Guitar" />
+                    <img src="'. str_replace('..', '.', $row['course_img']).'" class="card-img-top" alt="Python" />
                     <div class="card-body">
-                        <h5 class="card-title">Learn Guitar Easy Way</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
+                        <h5 class="card-title">'. $row['course_name'] .'</h5>
+                        <p class="card-text">'. $row['course_desc'] .'</p>
                     </div>
                     <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
+                        <p class="card-text d-inline">Price: <small><del>&#8377 '. $row['course_original_price'] .' </del></small><span class="font-weight-bolder">&#8377 '. $row['course_price'] .'</span></p>
+                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="coursedetail.php?course_id='. $course_id .'">Enroll</a>
                     </div>
                 </div>
             </a>
-            <a href="#" class="btn" style="text-align: left;
-            padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/guitar.jpg" class="card-img-top" alt="Guitar" />
-                    <div class="card-body">
-                        <h5 class="card-title">Learn Guitar Easy Way</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="btn" style="text-align: left;
-            padding:0px; margin:0px;">
-                <div class="card">
-                    <img src="image/guitar.jpg" class="card-img-top" alt="Guitar" />
-                    <div class="card-body">
-                        <h5 class="card-title">Learn Guitar Easy Way</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, dignissimos!</p>
-                    </div>
-                    <div class="card-footer">
-                        <p class="card-text d-inline">Price: <small><del>&#8377 2000 </del></small><span class="font-weight-bolder">&#8377 200</span></p>
-                        <a class="btn btn-primary text-white font-weight-bolder float-right" href="#">Enroll</a>
-                    </div>
-                </div>
-            </a>
+                    ';
+                }
+            }
+
+            ?>
         </div>
         <!-- End Most Popular 2nd Card Deck -->
         <div class="text-center m-2">
-            <a class="btn btn-danger btn-sm" href="#">View All Courses</a>
+            <a class="btn btn-danger btn-sm" href="courses.php">View All Courses</a>
         </div>
     </div>
     <!-- End Most Popular Course -->
