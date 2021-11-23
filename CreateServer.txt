@@ -30,8 +30,16 @@ stu_id int AUTO_INCREMENT NOT NULL,
 stu_name varchar(255) NOT NULL,
 stu_email varchar(255) NOT NULL,
 stu_pass varchar(255) NOT NULL,
-stu_occ varchar(255) NOT NULL,
-stu_img text NOT NULL,
-PRIMARY_KEY (stu_id)
+stu_occ varchar(255),
+stu_img text,
+PRIMARY KEY (stu_id)
+)
+
+feedback
+
+CREATE TABLE feedback (
+f_id int AUTO_INCREMENT NOT NULL,
+f_content text NOT NULL,
+stu_id int NOT NULL
 )
 
