@@ -22,6 +22,24 @@ course_duration text NOT NULL,
 PRIMARY KEY (course_id)
 )
 
+Lesson
+
+CREATE TABLE lesson (
+
+l_id int AUTO_INCREMENT NOT NULL,
+
+lesson_name text NOT NULL,
+
+lesson_desc text NOT NULL,
+
+course_id int NOT NULL,
+
+course_name text NOT NULL
+
+PRIMARY KEY (l_id)
+
+)
+
 student
 
 CREATE TABLE student (
