@@ -32,6 +32,8 @@ lesson_name text NOT NULL,
 
 lesson_desc text NOT NULL,
 
+lesson_link text NOT NULL,
+
 course_id int NOT NULL,
 
 course_name text NOT NULL
